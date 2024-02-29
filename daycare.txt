@@ -1,0 +1,2 @@
+last name   first name  age     gender      allergies       parent1/guardian1       parent2/guardian2       teacher
+Cho         Selei       21      F           cats, dogs      Selei Mom               N/A N/A                 Best Teacher
