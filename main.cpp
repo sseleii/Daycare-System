@@ -49,6 +49,7 @@ int main() {
     getline(iFile, line);
 
     do {
+        allergies.clear();
         iFile >> line >> line2;
         child1.setName(line2, line);
 
@@ -103,30 +104,32 @@ int main() {
         counter++;
     } while (!iFile.eof());
 
-    cout << "\nFirst Name: " << system[0].getFirstName()
-         << "\nLast Name: " << system[0].getLastName()
-         << "\nAge: " << system[0].getAge()
-         << "\nGender: " << system[0].getGender()
-         << "\nAllergies: ";
+    for (int i = 0; i < system.size(); i++) {
+        cout << "\nFirst Name: " << system[i].getFirstName()
+            << "\nLast Name: " << system[i].getLastName()
+            << "\nAge: " << system[i].getAge()
+            << "\nGender: " << system[i].getGender()
+            << "\nAllergies: ";
 
-    counter = 0;
+        counter = 0;
 
-    while (system[0].getAllergies().size() != counter) {
-        line = system[0].getAllergies()[counter];
-        if (counter == system[0].getAllergies().size()-1) {
-            cout << line << endl;
-        } else {
-            cout << line << ", ";
+        while (system[i].getAllergies().size() != counter) {
+            line = system[i].getAllergies()[counter];
+            if (counter == system[i].getAllergies().size()-1) {
+                cout << line << endl;
+            } else {
+                cout << line << ", ";
+            }
+            counter++;
         }
-        counter++;
-    }
 
-    cout << "\nParent1 Name: " << system[0].getParent1().getFirstName() << " "
-                               << system[0].getParent1().getLastName()
-         << "\nParent2 Name: " << system[0].getParent2().getFirstName() << " "
-                               << system[0].getParent2().getLastName()
-         << "\nTeacher Name: " << system[0].getTeacher().getFirstName() << " "
-                               << system[0].getTeacher().getLastName() << endl;
+        cout << "Parent1 Name: " << system[i].getParent1().getFirstName() << " "
+                                << system[i].getParent1().getLastName()
+            << "\nParent2 Name: " << system[i].getParent2().getFirstName() << " "
+                                << system[i].getParent2().getLastName()
+            << "\nTeacher Name: " << system[i].getTeacher().getFirstName() << " "
+                                << system[i].getTeacher().getLastName() << endl;
+    }
 
     iFile.close();
 
